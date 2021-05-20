@@ -46,10 +46,7 @@ The scrips is made of a object `Hangman()` which will be initialized in the `mai
    -`error_count`: attribute that contains the number of errors made by the player.
    
 ### Methods:
-   
-  - `__init__(self)`:
-       This is the constructor to initialize the object.
-   
+
   - `game_over(self)`:
        This method will print 'game over...' before breaking the loop
        and finishing the game.
