@@ -70,7 +70,8 @@ The scrips is made of a object `Hangman()` which will be initialized in the `mai
   - `start_game(self)`:
        This function will first to choose randomly one of the "possible words" and
        saves it as a list of single chars into `word_to_find` attribute. Then create
-       a list of spaces of the same size as `word_to_find`and initialize all the attributes.
+       a list of spaces of the same size as `word_to_find`and initialize all the 
+       attributes.so that this method can be called as many times as you want to play!.
        Afterwards, it calls the `play()` method letting the user play.
        If the player has no more lives, it calls the `game_over()` method
        If the player has guessed correctly the word, it calls `well_played()` method
