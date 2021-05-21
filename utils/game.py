@@ -28,13 +28,13 @@ class Hangman:
      the player.
     """
 
-    possible_words: List[str] = ["becode", "learning", "mathematics", "sessions"]
+    possible_words: List[str] 
     word_to_find: List[str] = list()
-    lives: int = 5
-    correctly_guessed_letters: List[str] = list()
-    wrongly_guessed_letters: List[str] = list()
-    turn_count: int = 0
-    error_count: int = 0
+    lives: int
+    correctly_guessed_letters: List[str]
+    wrongly_guessed_letters: List[str]
+    turn_count: int
+    error_count: int
 
     def __init__(self, possible_words: List[str] = ["becode", "learning", "mathematics", "sessions"]):
         """
@@ -48,6 +48,10 @@ class Hangman:
         self.possible_words = possible_words
         self.word_to_find: List[chr] = list(random.choice(self.possible_words))
         self.correctly_guessed_letters: List[chr] = ["_"] * len(self.word_to_find)
+        self.lives: int = 5
+        self.wrongly_guessed_letters: List[str] = list()
+        self.turn_count: int = 0
+        self.error_count: int = 0
 
     def play(self):
         """
