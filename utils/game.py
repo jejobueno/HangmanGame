@@ -1,3 +1,4 @@
+import random
 import re
 from random import randint
 from typing import List
@@ -34,6 +35,19 @@ class Hangman:
     wrongly_guessed_letters: List[str] = list()
     turn_count: int = 0
     error_count: int = 0
+
+    def __init__(self, possible_words: List[str] = ["becode", "learning", "mathematics", "sessions"]):
+        """
+         This method initialize the Hangman object choose randomly one of the
+        'possible words' and saves it as a list of single chars into
+        'word_to_find' attribute. Then create a list of spaces of the same
+        size as 'word_to_find'
+        :param possible_words: contains all possible word that can be chosen
+        as word to find.
+        """
+        self.possible_words = possible_words
+        self.word_to_find: List[chr] = list(random.choice(self.possible_words))
+        self.correctly_guessed_letters: List[chr] = ["_"] * len(self.word_to_find)
 
     def play(self):
         """
@@ -74,19 +88,13 @@ class Hangman:
 
     def start_game(self):
         """
-        This function will first to choose randomly one of the
-        'possible words' and saves it as a list of single chars into
-        'word_to_find' attribute. Then create a list of spaces of the same
-        size as 'word_to_find'. Afterwards, it calls the "play" method
+        This function will call the "play" method
         letting the user play. If the player has no more lives, it calls the
         "game_over" method. If the player has guessed correctly the word, it
         calls "well_played" method
         (correctly_guessed_letters == self.word_to_find)
         """
         print("Let's start this game!")
-        self.word_to_find: List[chr] = list(self.possible_words[randint(0, len(self.possible_words) - 1)])
-
-        self.correctly_guessed_letters: List[chr] = ["_"] * len(self.word_to_find)
 
         while True:
             self.play()
@@ -123,3 +131,4 @@ class Hangman:
         count of turns and error
         """
         print(f"You found the word: '{''.join(self.word_to_find)}' in {self.turn_count} turns with {self.error_count} errors!")
+
