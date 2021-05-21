@@ -47,15 +47,13 @@ The scrips is made of a object `Hangman()` which will be initialized in the `mai
    
 ### Methods:
 
-  - `__init__(self, possible_words: List[str] = ["becode", "learning", "mathematics", "sessions"])`:
-        """
+  - `__init__(self, possible_words: List[str])`:
          This method initialize the Hangman object choose randomly one of the
         `possible words` and saves it as a list of single chars into
         `word_to_find` attribute. Then create a list of spaces of the same
         size as `word_to_find`
         :param possible_words: contains all possible word that can be chosen
         as word to find. Default value = ["becode", "learning", "mathematics", "sessions"]
-        """
   - `game_over(self)`:
        This method will print 'game over...' before breaking the loop
        and finishing the game.
