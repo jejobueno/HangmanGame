@@ -28,7 +28,7 @@ class Hangman:
      the player.
     """
 
-    possible_words: List[str] 
+    possible_words: List[str]
     word_to_find: List[str] = list()
     lives: int
     correctly_guessed_letters: List[str]
@@ -38,21 +38,11 @@ class Hangman:
 
     def __init__(self, possible_words: List[str] = ["becode", "learning", "mathematics", "sessions"]):
         """
-         This method initialize the Hangman object choose randomly one of the
-        'possible words' and saves it as a list of single chars into
-        'word_to_find' attribute. Then create a list of spaces of the same
-        size as 'word_to_find'
+         This method initialize the Hangman object with a list of possbile words
         :param possible_words: contains all possible word that can be chosen
         as word to find.
         """
         self.possible_words = possible_words
-        self.word_to_find: List[chr] = list(random.choice(self.possible_words))
-        self.correctly_guessed_letters: List[chr] = ["_"] * len(self.word_to_find)
-        self.lives: int = 5
-        self.wrongly_guessed_letters: List[str] = list()
-        self.turn_count: int = 0
-        self.error_count: int = 0
-
     def play(self):
         """
         Play() method will has to the player for a single letter, if it is not
@@ -92,12 +82,24 @@ class Hangman:
 
     def start_game(self):
         """
-        This function will call the "play" method
+        This function will first choose randomly one of the
+        'possible words' and saves it as a list of single chars into
+        'word_to_find' attribute. Then create a list of spaces of the same
+        size as 'word_to_find' and initialize all the attributes so that
+        this method can be called as many times as you want to play!.
+        Then the game starts and calls the "play" method
         letting the user play. If the player has no more lives, it calls the
         "game_over" method. If the player has guessed correctly the word, it
         calls "well_played" method
         (correctly_guessed_letters == self.word_to_find)
         """
+        self.word_to_find: List[chr] = list(random.choice(self.possible_words))
+        self.correctly_guessed_letters: List[chr] = ["_"] * len(self.word_to_find)
+        self.lives: int = 5
+        self.wrongly_guessed_letters: List[str] = list()
+        self.turn_count: int = 0
+        self.error_count: int = 0
+
         print("Let's start this game!")
 
         while True:
